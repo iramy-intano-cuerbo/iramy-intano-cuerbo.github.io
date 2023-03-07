@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
+import BasicList from '../lists/basicList'
 
 const GenProfile = (props) => {
     return (

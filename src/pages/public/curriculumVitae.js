@@ -47,22 +47,14 @@ const CurriculumVitae = (props) => {
                 <GenBlockComponent
                     title='Skills'>
                     <Grid container spacing={2}>
-                        { states.aboutMe? states.aboutMe.skills.map((item, index) => {
-                            return (
-                                <Grid item xs={12} sm={4} key={ index }>
-                                    <SecProfileBlock
-                                        title={ item.title }
-                                        description={ item.desc }>
-                                        <Box style={{ marginTop: 20 }}>
-                                            <BasicList
-                                                variant='unordered'
-                                                colSize={{xs: 6, sm: 12}}
-                                                list={ item.techs } />
-                                        </Box>
-                                    </SecProfileBlock>
-                                </Grid>
-                            )
-                        }): null }
+                        { states.aboutMe && states.aboutMe.skills? (
+                            <Box style={{ marginTop: 20, marginLeft: 20 }}>
+                                <BasicList
+                                    variant='unordered'
+                                    colSize={{xs: 12, sm: 6, md: 4}}
+                                    list={ states.aboutMe.skills } />
+                            </Box>
+                        ): null }
                     </Grid>
                 </GenBlockComponent>
             </Grid>
@@ -77,32 +69,19 @@ const CurriculumVitae = (props) => {
                                     <SecProfileBlock
                                         title={ item.title }
                                         subtitle={ `(${ item.year }) ${ item.position }` }
-                                        description={ item.desc }
-                                        links={ item.links } />
+                                        description={ item.desc }>
+                                        <Box style={{ marginTop: 20 }}>
+                                            <BasicList
+                                                variant='unordered'
+                                                colSize={{xs: 12, sm: 6}}
+                                                list={ item.techs } />
+                                        </Box>
+                                    </SecProfileBlock>
                                 </Grid>
                             )
                         }): null }
                     </Grid>
 
-                </GenBlockComponent>
-            </Grid>
-
-            <Grid item xs={12} style={ styles.sectionStyle }>
-                <GenBlockComponent
-                    title='Personal Projects'>
-                    <Grid container spacing={2}>
-                        { states.aboutMe? states.aboutMe.personalProjs.map((item, index) => {
-                                return (
-                                    <Grid item xs={12} md={6} key={ index }>
-                                        <SecProfileBlock
-                                            title={ item.title }
-                                            subtitle={ `(${ item.year }) ${ item.subtitle }` }
-                                            description={ item.desc }
-                                            links={ item.links } />
-                                    </Grid>
-                                )
-                        }): null }
-                    </Grid>
                 </GenBlockComponent>
             </Grid>
 
